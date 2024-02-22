@@ -7,11 +7,12 @@ Order BY count(cust_id) DESC )
 ORDER BY Count DESC
 limit 5;
 
---Count of males and Females--
+
+-- Count of Males and Females--
 
 Select * FROM (SELECT COUNT(Gender) as Gender_Count, Gender FROM `trans123.Customers` GROUP BY Gender) AS GenCount
 PIVOT
-(SUM (Gender_Count) FOR Gender IN ('F','M') ) AS PIVOTGender;
+(SUM (Gender_Count) FOR Gender IN ('F', 'M') ) AS PIVOTGender;
 
 --Which City Has the maximum number of Customers--
 
